@@ -8,7 +8,8 @@ The live demo of this project can be found at: https://smart-brain-777.herokuapp
 
 To use the files, download them and run ```npm install``` and then 
 change the following code in the package.json file:
-```"scripts": {
+```
+"scripts": {
     "start": "node server.js" \\from this
   },
   //to this
