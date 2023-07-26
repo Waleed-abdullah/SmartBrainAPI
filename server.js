@@ -6,15 +6,11 @@ import handleRegister from './controllers/register.js';
 import handleSignin from './controllers/signin.js';
 import handleProfileGet from './controllers/profile.js';
 import { handleImage, handleApiCall } from './controllers/image.js';
+import 'dotenv/config';
 
 const db = knex({
   client: 'pg',
-  connection: {
-    connectionString: process.env.DATABASE_URL,
-    ssl: {
-      rejectUnauthorized: false,
-    },
-  },
+  connection: process.env.DATABASE_URL,
 });
 
 const app = express();
@@ -47,5 +43,7 @@ app.post('/imageurl', (req, res) => {
 });
 
 app.listen(process.env.PORT || 3000, () => {
-  console.log(`app is running on port ${process.env.PORT}`);
+  console.log(
+    `app is running on port ${process.env.PORT ? process.env.PORT : 3000}`
+  );
 });
