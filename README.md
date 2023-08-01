@@ -7,10 +7,11 @@ This project was created using create-react-app, a backend server with node and 
 
 The live demo of this project can be found at: https://smart-brain-777.herokuapp.com/
 
-You also need to add your own API Key in image.js file.
+You also need to add your own API Key and database URI in .env file
 
-To use the files, download them and run ```npm install``` and then 
+To use the files, download them and run `npm install` and then
 change the following code in the package.json file:
+
 ```
 "scripts": {
     "start": "node server.js" \\from this
@@ -20,5 +21,8 @@ change the following code in the package.json file:
     "start": "nodemon server.js"
   },
 ```
+
 and then run
-```npm start``` to start it.
+`npm start` to start it.
+
+Or you can use the docker container by running `docker compose up`, you will still need to add the Clarifai API key in your .env file
