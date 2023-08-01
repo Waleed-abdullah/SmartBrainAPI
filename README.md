@@ -5,24 +5,6 @@ It uses a Clarifai machine learning api to detect faces, just paste an image add
 
 This project was created using create-react-app, a backend server with node and express and a database using postgreSQL
 
-The live demo of this project can be found at: https://smart-brain-777.herokuapp.com/
+---
 
-You also need to add your own API Key and database URI in .env file
-
-To use the files, download them and run `npm install` and then
-change the following code in the package.json file:
-
-```
-"scripts": {
-    "start": "node server.js" \\from this
-  },
-  //to this
-  "scripts": {
-    "start": "nodemon server.js"
-  },
-```
-
-and then run
-`npm start` to start it.
-
-Or you can use the docker container by running `docker compose up`, you will still need to add the Clarifai API key in your .env file
+You can use the docker container to run the server by running `docker compose up`, you will need to add the Clarifai API key in your .env file
