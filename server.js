@@ -7,6 +7,7 @@ import handleSignin from './controllers/signin.js';
 import handleProfileGet from './controllers/profile.js';
 import { handleImage, handleApiCall } from './controllers/image.js';
 import 'dotenv/config';
+import morgan from 'morgan';
 
 const db = knex({
   client: 'pg',
@@ -17,6 +18,7 @@ const app = express();
 
 app.use(json());
 app.use(cors());
+app.use(morgan('tiny'));
 
 app.get('/', (req, res) => {
   res.json('success');
