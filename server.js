@@ -4,7 +4,10 @@ import cors from 'cors';
 import knex from 'knex';
 import handleRegister from './controllers/register.js';
 import handleSignin from './controllers/signin.js';
-import handleProfileGet from './controllers/profile.js';
+import {
+  handleProfileGet,
+  handleProfileUpdate,
+} from './controllers/profile.js';
 import { handleImage, handleApiCall } from './controllers/image.js';
 import 'dotenv/config';
 import morgan from 'morgan';
@@ -30,6 +33,10 @@ app.post('/signin', (req, res) => {
 
 app.post('/register', (req, res) => {
   handleRegister(req, res, db, bcrypt);
+});
+
+app.post('/profile/:id', (req, res) => {
+  handleProfileUpdate(req, res, db);
 });
 
 app.get('/profile/:id', (req, res) => {
