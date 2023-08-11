@@ -11,6 +11,7 @@ import {
 import { handleImage, handleApiCall } from './controllers/image.js';
 import 'dotenv/config';
 import morgan from 'morgan';
+import requireAuth from './controllers/authorization.js';
 
 const db = knex({
   client: 'pg',
@@ -33,19 +34,19 @@ app.post('/register', (req, res) => {
   handleRegister(req, res, db, bcrypt);
 });
 
-app.post('/profile/:id', (req, res) => {
+app.post('/profile/:id', requireAuth, (req, res) => {
   handleProfileUpdate(req, res, db);
 });
 
-app.get('/profile/:id', (req, res) => {
+app.get('/profile/:id', requireAuth, (req, res) => {
   handleProfileGet(req, res, db);
 });
 
-app.put('/image', (req, res) => {
+app.put('/image', requireAuth, (req, res) => {
   handleImage(req, res, db);
 });
 
-app.post('/imageurl', (req, res) => {
+app.post('/imageurl', requireAuth, (req, res) => {
   handleApiCall(req, res);
 });
 
